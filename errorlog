@@ -1,0 +1,572 @@
+ccx@localhost:~/temp/SeisSol/gpu-build $ cmake -DDEVICE_BACKEND=cuda -DDEVICE_ARCH=sm_70 -DHOST_ARCH=hsw -DCOMMTHREAD=ON -DCMAKE_BUILD_TYPE=Release -DPRECISION=double ..
+-- The C compiler identification is GNU 9.3.1
+-- The CXX compiler identification is GNU 9.3.1
+-- The Fortran compiler identification is GNU 9.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /opt/rh/devtoolset-9/root/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/rh/devtoolset-9/root/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Check for working Fortran compiler: /opt/rh/devtoolset-9/root/usr/bin/gfortran - skipped
+-- Checking whether /opt/rh/devtoolset-9/root/usr/bin/gfortran supports Fortran 90
+-- Checking whether /opt/rh/devtoolset-9/root/usr/bin/gfortran supports Fortran 90 - yes
+-- GEMM TOOLS are: LIBXSMM,GemmForge
+-- Current Git description: 202103_Sumatra-1135-g22ed98b
+-- Found Python3: /home/ccx/bin/python3.9 (found version "3.9.0") found components: Interpreter 
+-- Found Libxsmm_executable: /home/ccx/bin/libxsmm_gemm_generator  
+-- Found GemmForge: /home/ccx/temp/gemmforge/gemmforge/include/gemmforge_aux.cu (Required is at least version "0.0.207") 
+-- The CUDA compiler identification is NVIDIA 11.6.55
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda-11.6/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP_Fortran: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Found PkgConfig: /bin/pkg-config (found version "0.27.1") 
+-- Checking for module 'asagi'
+--   Found asagi, version 1.0
+-- Checking for module 'netcdf'
+--   Found netcdf, version 4.6.1
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP_Fortran: -fopenmp (found version "4.5") 
+-- Found MPI_C: /home/ccx/lib/libmpi.so (found version "3.1") 
+-- Found MPI_CXX: /home/ccx/lib/libmpi.so (found version "3.1") 
+-- Found MPI_Fortran: /home/ccx/lib/libmpi_usempif08.so (found version "3.1") 
+-- Found MPI: TRUE (found version "3.1")  
+-- Found NUMA: /usr  
+-- Found HDF5: /home/ccx/lib/libhdf5.a;/usr/local/lib/libz.so;/usr/lib64/libdl.so;/usr/lib64/libm.so (found version "1.10.8") found components: C HL 
+-- Performing Test METIS_TEST_RUNS
+-- Performing Test METIS_TEST_RUNS - Success
+-- Performing Test _METIS_64_BIT_INTEGER
+-- Performing Test _METIS_64_BIT_INTEGER - Success
+-- Found METIS: /home/ccx/lib/libmetis.a  
+-- Performing Test PARMETIS_TEST_RUNS
+-- Performing Test PARMETIS_TEST_RUNS - Success
+-- Found ParMETIS: /home/ccx/lib/libparmetis.a (found version "4.0") 
+-- Found Eigen3: /home/ccx/include/eigen3 (Required is at least version "3.4") 
+-- Found CUDAToolkit: /usr/local/cuda-11.6/include (found version "11.6.55") 
+-- Looking for pthread.h
+CMake Warning (dev) at /home/ccx/temp/cmake-3.20.1-linux-x86_64/share/cmake-3.20/Modules/CheckIncludeFile.cmake:82 (message):
+  Policy CMP0075 is not set: Include file check macros honor
+  CMAKE_REQUIRED_LIBRARIES.  Run "cmake --help-policy CMP0075" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  CMAKE_REQUIRED_LIBRARIES is set to:
+
+    /home/ccx/lib/libmetis.a;/home/ccx/lib/libparmetis.a;/home/ccx/lib/libmpi.so
+
+  For compatibility with CMake 3.11 and below this check is ignoring it.
+Call Stack (most recent call first):
+  /home/ccx/temp/cmake-3.20.1-linux-x86_64/share/cmake-3.20/Modules/FindThreads.cmake:146 (CHECK_INCLUDE_FILE)
+  /home/ccx/temp/cmake-3.20.1-linux-x86_64/share/cmake-3.20/Modules/FindCUDAToolkit.cmake:879 (find_package)
+  submodules/Device/cuda.cmake:43 (find_package)
+  submodules/Device/CMakeLists.txt:51 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found SYCL: TRUE
+-- Performing Test _FILESYSTEM_NATIVE
+-- Performing Test _FILESYSTEM_NATIVE - Success
+-- Found FILESYSTEM:   
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ccx/temp/SeisSol/gpu-build
+ccx@localhost:~/temp/SeisSol/gpu-build $ make -j48
+[  1%] Building CUDA object submodules/Device/CMakeFiles/device.dir/interfaces/cuda/Aux.cu.o
+[  1%] Building CUDA object submodules/Device/CMakeFiles/device.dir/interfaces/cuda/Streams.cu.o
+[  1%] Building CUDA object submodules/Device/CMakeFiles/device.dir/interfaces/cuda/Control.cu.o
+[  1%] Built target build-time-make-directory
+[  1%] Building CUDA object submodules/Device/CMakeFiles/device.dir/interfaces/cuda/Memory.cu.o
+[  2%] Building CUDA object submodules/Device/CMakeFiles/device.dir/interfaces/cuda/Copy.cu.o
+[  3%] Building CUDA object submodules/Device/CMakeFiles/device.dir/interfaces/cuda/Internals.cu.o
+[  4%] Building CUDA object submodules/Device/CMakeFiles/device.dir/device.cpp.o
+[  4%] Building CUDA object submodules/Device/CMakeFiles/device.dir/algorithms/cuda/ArrayManip.cu.o
+[  4%] Building CUDA object submodules/Device/CMakeFiles/device.dir/algorithms/cuda/BatchManip.cu.o
+[  5%] Building CUDA object submodules/Device/CMakeFiles/device.dir/algorithms/cuda/Debugging.cu.o
+[  6%] Codegen for tensor stuff.
+[  6%] Building CUDA object submodules/Device/CMakeFiles/device.dir/algorithms/cuda/Reduction.cpp.o
+INFO: Found gpu as a target. Memory layout will fall back to all dense
+ptxas info    : 0 bytes gmem
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN6device27kernel_copyScatterToUniformIcEEvPPT_S2_mm' for 'sm_70'
+ptxas info    : Function properties for _ZN6device27kernel_copyScatterToUniformIcEEvPPT_S2_mm
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device27kernel_copyScatterToUniformIiEEvPPT_S2_mm' for 'sm_70'
+ptxas info    : Function properties for _ZN6device27kernel_copyScatterToUniformIiEEvPPT_S2_mm
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device27kernel_copyScatterToUniformIdEEvPPT_S2_mm' for 'sm_70'
+ptxas info    : Function properties for _ZN6device27kernel_copyScatterToUniformIdEEvPPT_S2_mm
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device27kernel_copyUniformToScatterIcEEvPT_PS2_mm' for 'sm_70'
+ptxas info    : Function properties for _ZN6device27kernel_copyUniformToScatterIcEEvPT_PS2_mm
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device27kernel_copyUniformToScatterIiEEvPT_PS2_mm' for 'sm_70'
+ptxas info    : Function properties for _ZN6device27kernel_copyUniformToScatterIiEEvPT_PS2_mm
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device27kernel_copyUniformToScatterIdEEvPT_PS2_mm' for 'sm_70'
+ptxas info    : Function properties for _ZN6device27kernel_copyUniformToScatterIdEEvPT_PS2_mm
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 16 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device25kernel_touchBatchedMemoryEPPdjb' for 'sm_70'
+ptxas info    : Function properties for _ZN6device25kernel_touchBatchedMemoryEPPdjb
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, 365 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device28kernel_accumulateBatchedDataEPPdS1_j' for 'sm_70'
+ptxas info    : Function properties for _ZN6device28kernel_accumulateBatchedDataEPPdS1_j
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 16 registers, 372 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device24kernel_streamBatchedDataEPPdS1_j' for 'sm_70'
+ptxas info    : Function properties for _ZN6device24kernel_streamBatchedDataEPPdS1_j
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 372 bytes cmem[0]
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN6device13kernel_reduceIdNS_3MinIdEEEEvPT_PKS3_mT0_' for 'sm_70'
+ptxas info    : Function properties for _ZN6device13kernel_reduceIdNS_3MinIdEEEEvPT_PKS3_mT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 377 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device13kernel_reduceIdNS_3MaxIdEEEEvPT_PKS3_mT0_' for 'sm_70'
+ptxas info    : Function properties for _ZN6device13kernel_reduceIdNS_3MaxIdEEEEvPT_PKS3_mT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 377 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device13kernel_reduceIdNS_3SumIdEEEEvPT_PKS3_mT0_' for 'sm_70'
+ptxas info    : Function properties for _ZN6device13kernel_reduceIdNS_3SumIdEEEEvPT_PKS3_mT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 16 registers, 377 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device13kernel_reduceIjNS_3MinIjEEEEvPT_PKS3_mT0_' for 'sm_70'
+ptxas info    : Function properties for _ZN6device13kernel_reduceIjNS_3MinIjEEEEvPT_PKS3_mT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, 377 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device13kernel_reduceIjNS_3MaxIjEEEEvPT_PKS3_mT0_' for 'sm_70'
+ptxas info    : Function properties for _ZN6device13kernel_reduceIjNS_3MaxIjEEEEvPT_PKS3_mT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, 377 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device13kernel_reduceIjNS_3SumIjEEEEvPT_PKS3_mT0_' for 'sm_70'
+ptxas info    : Function properties for _ZN6device13kernel_reduceIjNS_3SumIjEEEEvPT_PKS3_mT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, 377 bytes cmem[0]
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN6device16kernel_fillArrayIcEEvPT_S1_m' for 'sm_70'
+ptxas info    : Function properties for _ZN6device16kernel_fillArrayIcEEvPT_S1_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device16kernel_fillArrayIiEEvPT_S1_m' for 'sm_70'
+ptxas info    : Function properties for _ZN6device16kernel_fillArrayIiEEvPT_S1_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device16kernel_fillArrayIdEEvPT_S1_m' for 'sm_70'
+ptxas info    : Function properties for _ZN6device16kernel_fillArrayIdEEvPT_S1_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device17kernel_scaleArrayIcEEvPT_S1_m' for 'sm_70'
+ptxas info    : Function properties for _ZN6device17kernel_scaleArrayIcEEvPT_S1_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device17kernel_scaleArrayIiEEvPT_S1_m' for 'sm_70'
+ptxas info    : Function properties for _ZN6device17kernel_scaleArrayIiEEvPT_S1_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device17kernel_scaleArrayIdEEvPT_S1_m' for 'sm_70'
+ptxas info    : Function properties for _ZN6device17kernel_scaleArrayIdEEvPT_S1_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN6device18kernel_touchMemoryEPdmb' for 'sm_70'
+ptxas info    : Function properties for _ZN6device18kernel_touchMemoryEPdmb
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 6 registers, 369 bytes cmem[0]
+ptxas info    : 0 bytes gmem
+Deducing indices...
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z22kernel_synchAllStreamsv' for 'sm_70'
+ptxas info    : Function properties for _Z22kernel_synchAllStreamsv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, 352 bytes cmem[0]
+ptxas info    : 27 bytes gmem
+ptxas info    : Compiling entry function '_ZN6device22kernel_checkOffloadingEv' for 'sm_70'
+ptxas info    : Function properties for _ZN6device22kernel_checkOffloadingEv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 24 registers, 352 bytes cmem[0]
+ptxas info    : 0 bytes gmem
+ptxas info    : 0 bytes gmem
+ptxas info    : 0 bytes gmem
+Generating unit tests...
+ptxas info    : 0 bytes gmem
+[  7%] Linking CUDA shared library libdevice.so
+[  7%] Built target device
+Optimizing ASTs...
+computeFluxSolverLocal
+computeFluxSolverNeighbor
+copyQToQFortran
+computeChristoffel
+projectIniCond
+evalAtQP
+gpu_volume
+volume
+rotateStress
+rotateInitStress
+resampleParameter
+transposeTinv
+rotateFluxMatrix
+evaluateFaceAlignedDOFSAtPoint
+computeTractionInterpolated
+accumulateFrictionalEnergy
+plConvertToNodal
+gpu_plConvertToNodalNoLoading
+gpu_plConvertEtaModal2Nodal
+gpu_plConvertEtaNodal2Modal
+plConvertToNodalNoLoading
+plConvertEtaModal2Nodal
+plConvertEtaNodal2Modal
+plComputeMean
+plSubtractMean
+plComputeSecondInvariant
+plAdjustStresses
+gpu_plConvertToNodal
+gpu_plConvertToModal
+createEasiBoundaryGhostCells
+updateINodal
+rotateFaceDisplacement
+rotateFaceDisplacementsAndEvaluateAtQuadratureNodes
+computeMInvJInvPhisAtSources
+sourceNRF
+sourceFSRM
+evaluateDOFSAtPoint
+evaluateDOFSAtPointSTP
+gpu_localFlux
+gpu_localFluxNodal
+localFlux
+localFluxNodal
+gpu_neighboringFlux
+neighboringFlux
+gpu_derivativeTaylorExpansion
+gpu_derivative
+derivativeTaylorExpansion
+derivative
+gpu_evaluateAndRotateQAtInterpolationPoints
+evaluateAndRotateQAtInterpolationPoints
+gpu_nodalFlux
+nodalFlux
+projectToNodalBoundary
+projectToNodalBoundaryRotated
+projectDerivativeToNodalBoundaryRotated
+subTriangleDisplacement
+subTriangleVelocity
+addVelocity
+gpu_addVelocity
+Generating kernels...
+Calling external code generators...
+Generating initialization code...
+[  7%] Built target SeisSol-codegen
+[  8%] Building CUDA object CMakeFiles/SeisSol-device-lib.dir/home/ccx/temp/gemmforge/gemmforge/include/gemmforge_aux.cu.o
+[  8%] Building CUDA object CMakeFiles/SeisSol-device-lib.dir/src/generated_code/gpulike_subroutine.cpp.o
+[  8%] Building CUDA object CMakeFiles/SeisSol-device-lib.dir/src/Kernels/DeviceAux/cuda/PlasticityAux.cu.o
+/home/ccx/temp/SeisSol/submodules/yateto/include/yateto/TensorView.h(214): warning #186-D: pointless comparison of unsigned integer with zero
+          detected during:
+            instantiation of "void yateto::DenseTensorView<Dim, real_t, uint_t>::computeStride() [with Dim=1U, real_t=double, uint_t=unsigned int]" 
+(75): here
+            instantiation of "yateto::DenseTensorView<Dim, real_t, uint_t>::DenseTensorView(real_t *, std::initializer_list<uint_t>, std::initializer_list<uint_t>, std::initializer_list<uint_t>) [with Dim=1U, real_t=double, uint_t=unsigned int]" 
+/home/ccx/temp/SeisSol/gpu-build/src/generated_code/init.h(104): here
+
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN7seissol7kernels6device3aux10plasticity22kernel_updateQEtaNodalEPPdS5_dPj' for 'sm_70'
+ptxas info    : Function properties for _ZN7seissol7kernels6device3aux10plasticity22kernel_updateQEtaNodalEPPdS5_dPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 26 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN7seissol7kernels6device3aux10plasticity25kernel_qEtaModalToPstrainEPPdS5_Pj' for 'sm_70'
+ptxas info    : Function properties for _ZN7seissol7kernels6device3aux10plasticity25kernel_qEtaModalToPstrainEPPdS5_Pj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN7seissol7kernels6device3aux10plasticity25kernel_pstrainToQEtaModalEPPdS5_Pj' for 'sm_70'
+ptxas info    : Function properties for _ZN7seissol7kernels6device3aux10plasticity25kernel_pstrainToQEtaModalEPPdS5_Pj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 376 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN7seissol7kernels6device3aux10plasticity22kernel_computePstrainsEPPdPK14PlasticityDataS5_S4_S5_dddPj' for 'sm_70'
+ptxas info    : Function properties for _ZN7seissol7kernels6device3aux10plasticity22kernel_computePstrainsEPPdPK14PlasticityDataS5_S4_S5_dddPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, 424 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN7seissol7kernels6device3aux10plasticity21kernel_adjustPointersEPdPS4_S4_S5_S4_S5_m' for 'sm_70'
+ptxas info    : Function properties for _ZN7seissol7kernels6device3aux10plasticity21kernel_adjustPointersEPdPS4_S4_S5_S4_S5_m
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 16 registers, 408 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN7seissol7kernels6device3aux10plasticity30kernel_adjustDeviatoricTensorsEPPdPjPK14PlasticityDatad' for 'sm_70'
+ptxas info    : Function properties for _ZN7seissol7kernels6device3aux10plasticity30kernel_adjustDeviatoricTensorsEPPdPjPK14PlasticityDatad
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 36 registers, 1 bytes smem, 384 bytes cmem[0]
+ptxas info    : 0 bytes gmem
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_06d5084057PPdjS0_jS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_06d5084057PPdjS0_jS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 68 registers, 4096 bytes smem, 432 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_77c5a7a190PPdjS0_jS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_77c5a7a190PPdjS0_jS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, 4096 bytes smem, 432 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_2e0b116a6dPdjPS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_2e0b116a6dPdjPS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, 2816 bytes smem, 416 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_902353545bPPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_902353545bPPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 70 registers, 1536 bytes smem, 496 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_21ebc23855PPdjS0_jS_jS0_jS0_jS0_jS_jS0_jS_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_21ebc23855PPdjS0_jS_jS0_jS0_jS0_jS_jS0_jS_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, 2304 bytes smem, 512 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_d34e6b0ec1PPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_d34e6b0ec1PPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 66 registers, 3328 bytes smem, 496 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_5be4fc261cPPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_5be4fc261cPPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 68 registers, 2816 bytes smem, 496 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_d7a174ea1ePPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_d7a174ea1ePPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 68 registers, 3968 bytes smem, 496 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z43kernel_dcopyAddScale_m1_56_n9_56_pp_8912d85dPPKdiPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z43kernel_dcopyAddScale_m1_56_n9_56_pp_8912d85dPPKdiPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z43kernel_dcopyAddScale_m4_56_n9_56_pp_ae71180dPPKdiPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z43kernel_dcopyAddScale_m4_56_n9_56_pp_ae71180dPPKdiPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z44kernel_dcopyAddScale_m10_56_n9_56_pp_a0e2022dPPKdiPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z44kernel_dcopyAddScale_m10_56_n9_56_pp_a0e2022dPPKdiPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z44kernel_dcopyAddScale_m20_56_n9_56_pp_9089bdedPPKdiPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z44kernel_dcopyAddScale_m20_56_n9_56_pp_9089bdedPPKdiPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z44kernel_dcopyAddScale_m35_56_n9_56_pp_b24a154dPPKdiPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z44kernel_dcopyAddScale_m35_56_n9_56_pp_b24a154dPPKdiPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z44kernel_dcopyAddScale_m56_56_n9_56_pp_ae8a04fdPPKdiPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z44kernel_dcopyAddScale_m56_56_n9_56_pp_ae8a04fdPPKdiPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_36f1267eb6PPdjS0_jS_jS_jS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_36f1267eb6PPdjS0_jS_jS_jS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 58 registers, 4096 bytes smem, 464 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_01d9c9a1e1PPdjS0_jS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_01d9c9a1e1PPdjS0_jS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, 1792 bytes smem, 432 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_b92043a516PPdjS0_jS_jS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_b92043a516PPdjS0_jS_jS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 58 registers, 4096 bytes smem, 448 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_98b8b31a7ePdjPS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_98b8b31a7ePdjPS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 44 registers, 2688 bytes smem, 416 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_fe92c0c50fPdjPS_jS0_jS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_fe92c0c50fPdjPS_jS0_jS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, 2688 bytes smem, 448 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z74kernel_dgemm_NT_NT_m56_n1_k56_lda56_ldb56_ldc56_alpha_1_beta_0_npp_5a44b46PKdiPS0_iPPdijPj' for 'sm_70'
+ptxas info    : Function properties for _Z74kernel_dgemm_NT_NT_m56_n1_k56_lda56_ldb56_ldc56_alpha_1_beta_0_npp_5a44b46PKdiPS0_iPPdijPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, 448 bytes smem, 408 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_db4a19f128PdjPS_jS0_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_db4a19f128PdjPS_jS0_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 44 registers, 2688 bytes smem, 416 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26kernel_cf_gemms_342b69c600PPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj' for 'sm_70'
+ptxas info    : Function properties for _Z26kernel_cf_gemms_342b69c600PPdjS0_jS_jS0_jS0_jS_jS0_jS_jmPj
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 68 registers, 2944 bytes smem, 496 bytes cmem[0]
+[  9%] Linking CUDA shared library libSeisSol-device-lib.so
+[  9%] Built target SeisSol-device-lib
+Scanning dependencies of target SeisSol-lib
+[  9%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/Parallel/MPI.cpp.o
+[ 11%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Misc.cpp.o
+[ 11%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/FrictionSolver.cpp.o
+[ 11%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/SourceTimeFunction.cpp.o
+[ 11%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Factory.cpp.o
+[ 12%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/ThermalPressurization/ThermalPressurization.cpp.o
+[ 12%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/NoFault.cpp.o
+[ 13%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/LinearSlipWeakening.cpp.o
+[ 15%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Solver/f_ftoc_bind_interoperability.f90.o
+[ 15%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/gauss.f90.o
+: Permission deniedpython3: python3
+
+: Permission deniedn3
+: Permission denied: Permission denied
+
+: Permission deniedn3
+: Permission deniedn3
+/usr/bin/env: [ 16%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Output/ReceiverBasedOutput.cpp.o
+[ 17%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/ImposedSlipRatesInitializer.cpp.o
+[ 18%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/convertxieta2xy.f90.o
+[ 18%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Parallel/mpiF.f90.o
+[ 18%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/trilinearinterpolation.f90.o
+[ 19%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/typesdef.f90.o
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/Parallel/MPI.cpp.o] Error 126
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/FrictionSolver.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Misc.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Factory.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/SourceTimeFunction.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/NoFault.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/ThermalPressurization/ThermalPressurization.cpp.o] Error 126
+[ 20%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/RateAndStateInitializer.cpp.o
+[ 20%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/LinearSlipWeakeningInitializer.cpp.o
+[ 21%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/ParameterDB.cpp.o
+[ 21%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Output/OutputManager.cpp.o
+[ 21%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Output/FaultRefiner/FaultRefiners.cpp.o
+[ 21%] Building CXX object CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/BaseDRInitializer.cpp.o
+: Permission denied
+[ 21%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/PointMapper.cpp.o
+/usr/bin/env: [ 21%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/InternalState.cpp.o
+[ 22%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/GlobalData.cpp.o
+: Permission denied
+[ 22%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/CellLocalMatrices.cpp.o
+: Permission denied
+[ 23%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/MemoryAllocator.cpp.o
+: Permission deniedn3
+: Permission deniedbin/env: python3
+: Permission denied
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/FrictionLaws/LinearSlipWeakening.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/ImposedSlipRatesInitializer.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Output/ReceiverBasedOutput.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/RateAndStateInitializer.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/LinearSlipWeakeningInitializer.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Output/OutputManager.cpp.o] Error 126
+: Permission deniedn3
+: Permission deniedn3
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Output/FaultRefiner/FaultRefiners.cpp.o] Error 126
+make[2]: *** [CMakeFiles/general-sycl-offloading.dir/src/DynamicRupture/Initializers/BaseDRInitializer.cpp.o] Error 126
+make[1]: *** [CMakeFiles/general-sycl-offloading.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 24%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/time_stepping/LtsLayout.cpp.o
+[ 24%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/tree/Lut.cpp.o
+[ 25%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/MemoryManager.cpp.o
+[ 25%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/InitialFieldProjection.cpp.o
+[ 31%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/GhostTimeCluster.cpp.o
+[ 31%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/Interoperability.cpp.o
+[ 32%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/TimeManager.cpp.o
+[ 26%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Modules/Modules.cpp.o
+[ 26%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Modules/ModulesC.cpp.o
+[ 26%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/Functions.cpp.o
+[ 27%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Model/common.cpp.o
+[ 28%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/Transformation.cpp.o
+[ 29%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/Simulator.cpp.o
+[ 29%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/FreeSurfaceIntegrator.cpp.o
+[ 29%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/Statistics.cpp.o
+[ 32%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/CommunicationManager.cpp.o
+[ 32%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/TimeCluster.cpp.o
+[ 32%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/Pipeline/DrTuner.cpp.o
+[ 29%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/AbstractTimeCluster.cpp.o
+[ 33%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/MiniSeisSol.cpp.o
+[ 29%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Solver/time_stepping/ActorState.cpp.o
+[ 34%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Kernels/DynamicRupture.cpp.o
+[ 34%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Kernels/Plasticity.cpp.o
+[ 35%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Kernels/TimeCommon.cpp.o
+[ 35%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Kernels/Receiver.cpp.o
+[ 36%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/SeisSol.cpp.o
+[ 36%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/SourceTerm/Manager.cpp.o
+[ 36%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Parallel/Pin.cpp.o
+[ 37%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/SourceTerm/PointSource.cpp.o
+[ 38%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Parallel/mpiC.cpp.o
+[ 38%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Parallel/FaultMPI.cpp.o
+[ 39%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Geometry/GambitReader.cpp.o
+[ 39%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Geometry/MeshReaderFBinding.cpp.o
+[ 40%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Geometry/MeshTools.cpp.o
+[ 40%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Monitoring/FlopCounter.cpp.o
+[ 41%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Monitoring/LoopStatistics.cpp.o
+[ 41%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Reader/readparC.cpp.o
+[ 42%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/Backend.cpp.o
+[ 42%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/Manager.cpp.o
+[ 42%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/Fault.cpp.o
+[ 43%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/posix/Wavefield.cpp.o
+[ 43%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/posix/Fault.cpp.o
+[ 44%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/AnalysisWriter.cpp.o
+[ 44%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/FreeSurfaceWriterExecutor.cpp.o
+[ 45%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/PostProcessor.cpp.o
+[ 45%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/ReceiverWriter.cpp.o
+[ 46%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/FaultWriterExecutor.cpp.o
+[ 46%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/FaultWriter.cpp.o
+[ 47%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/WaveFieldWriter.cpp.o
+[ 47%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/FreeSurfaceWriter.cpp.o
+[ 48%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/EnergyOutput.cpp.o
+[ 49%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/ODEInt.cpp.o
+[ 49%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/ODEVector.cpp.o
+[ 49%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Physics/InitialField.cpp.o
+[ 50%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Equations/poroelastic/Model/datastructures.cpp.o
+[ 50%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Equations/elastic/Kernels/GravitationalFreeSurfaceBC.cpp.o
+[ 51%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/generated_code/tensor.cpp.o
+[ 51%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/generated_code/subroutine.cpp.o
+[ 51%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/generated_code/init.cpp.o
+[ 52%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/generated_code/kernel.cpp.o
+[ 52%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/mpio/Wavefield.cpp.o
+[ 53%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/mpio/FaultAsync.cpp.o
+[ 53%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/mpio/Fault.cpp.o
+[ 54%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/mpio/WavefieldAsync.cpp.o
+[ 54%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/h5/Wavefield.cpp.o
+[ 55%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Checkpoint/h5/Fault.cpp.o
+[ 55%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Geometry/PUMLReader.cpp.o
+[ 56%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/time_stepping/LtsWeights/LtsWeights.cpp.o
+[ 56%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/time_stepping/LtsWeights/WeightsModels.cpp.o
+[ 57%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/SourceTerm/NRFReader.cpp.o
+[ 57%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Equations/elastic/Kernels/DirichletBoundary.cpp.o
+[ 58%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Equations/elastic/Kernels/Local.cpp.o
+[ 58%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Equations/elastic/Kernels/Neighbor.cpp.o
+[ 59%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Equations/elastic/Kernels/Time.cpp.o
+[ 59%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/BatchRecorders/LocalIntegrationRecorder.cpp.o
+[ 60%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/BatchRecorders/NeighIntegrationRecorder.cpp.o
+[ 60%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/BatchRecorders/PlasticityRecorder.cpp.o
+[ 61%] Building CXX object CMakeFiles/SeisSol-lib.dir/src/Initializer/BatchRecorders/DynamicRuptureRecorder.cpp.o
+[ 61%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/quadpoints.f90.o
+[ 61%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Geometry/allocate_mesh.f90.o
+[ 62%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Solver/calc_deltat.f90.o
+[ 62%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/operators.f90.o
+[ 62%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Solver/mpiexchangevalues.f90.o
+[ 62%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Initializer/ini_optionalfields.f90.o
+[ 63%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Modules/ModulesF.f90.o
+[ 64%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Geometry/MeshReaderCBinding.f90.o
+[ 64%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/dgbasis.f90.o
+[ 64%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Numerical_aux/jacobinormal.f90.o
+[ 65%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Reader/readpar.f90.o
+[ 66%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Physics/ini_model.f90.o
+[ 67%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Initializer/dg_setup.f90.o
+[ 67%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Solver/f_ctof_bind_interoperability.f90.o
+[ 67%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/ResultWriter/inioutput_seissol.f90.o
+[ 67%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Solver/close_seissol.f90.o
+[ 68%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Initializer/ini_seissol.f90.o
+[ 69%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/Solver/calc_seissol.f90.o
+[ 69%] Building Fortran object CMakeFiles/SeisSol-lib.dir/src/seissolxx.f90.o
+[ 69%] Linking CXX static library libSeisSol-lib.a
+[ 69%] Built target SeisSol-lib
+make: *** [all] Error 2
+ccx@localhost:~/temp/SeisSol/gpu-build $ 
+
