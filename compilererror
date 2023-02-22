@@ -1,0 +1,80 @@
+ccxmpich@node06:~/temp/SeisSol/SeisSol/build $ CC=mpicc CXX=mpiCC FC=mpif90 CMAKE_PREFIX_PATH=~:$CMAKE_PREFIX_PATH PKG_CONFIG_PATH=~/lib/pkgconfig/:$PKG_CONFIG_PATH cmake -DNETCDF=ON -DMETIS=ON -DCOMMTHREAD=ON -DASAGI=ON -DHDF5=ON -DCMAKE_BUILD_TYPE=Release -DTESTING=OFF  -DNUMA_AWARE_PINNING=ON -DORDER=4 -DLOG_LEVEL=warning -DLOG_LEVEL_MASTER=info -DHOST_ARCH=hsw -DPRECISION=single ..
+-- The C compiler identification is GNU 9.3.1
+-- The CXX compiler identification is GNU 9.3.1
+-- The Fortran compiler identification is GNU 9.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/ccxmpich/bin/mpicc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/ccxmpich/bin/mpiCC - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Check for working Fortran compiler: /home/ccxmpich/bin/mpif90 - skipped
+-- Checking whether /home/ccxmpich/bin/mpif90 supports Fortran 90
+-- Checking whether /home/ccxmpich/bin/mpif90 supports Fortran 90 - yes
+-- GEMM TOOLS are: LIBXSMM
+-- Current Git description: 202103_Sumatra-1329-g6dd4cb4
+-- Found Python3: /home/ccxmpich/bin/python3.9 (found version "3.9.0") found components: Interpreter 
+-- Found Libxsmm_executable: /home/ccxmpich/bin/libxsmm_gemm_generator  
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP_Fortran: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.27.1") 
+-- Checking for module 'asagi'
+--   Found asagi, version 1.0
+-- Checking for module 'netcdf'
+--   Found netcdf, version 4.7.4
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP_Fortran: -fopenmp (found version "4.5") 
+-- Found MPI_C: /home/ccxmpich/bin/mpicc (found version "3.1") 
+-- Found MPI_CXX: /home/ccxmpich/bin/mpiCC (found version "3.1") 
+-- Found MPI_Fortran: /home/ccxmpich/bin/mpif90 (found version "3.1") 
+-- Found MPI: TRUE (found version "3.1")  
+-- Found NUMA: /usr  
+-- Found HDF5: /home/ccxmpich/lib/libhdf5.a;/usr/lib64/libz.so;/usr/lib64/libdl.so;/usr/lib64/libm.so (found version "1.10.8") found components: C HL 
+-- Performing Test METIS_TEST_RUNS
+-- Performing Test METIS_TEST_RUNS - Success
+-- Performing Test _METIS_64_BIT_INTEGER
+-- Performing Test _METIS_64_BIT_INTEGER - Success
+-- Found METIS: /home/ccxmpich/lib/libmetis.a  
+-- Performing Test PARMETIS_TEST_RUNS
+-- Performing Test PARMETIS_TEST_RUNS - Success
+-- Found ParMETIS: /home/ccxmpich/lib/libparmetis.a (found version "4.0") 
+-- Found Eigen3: /home/ccxmpich/include/eigen3 (Required is at least version "3.4") 
+-- Performing Test _FILESYSTEM_NATIVE
+-- Performing Test _FILESYSTEM_NATIVE - Success
+-- Found FILESYSTEM:   
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ccxmpich/temp/SeisSol/SeisSol/build
+
+
+ccxmpich@node06:~/temp/SeisSol/SeisSol/build $ make -j
+[  0%] Built target build-time-make-directory
+[  1%] Codegen for tensor stuff.
+Traceback (most recent call last):
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/generate.py", line 46, in <module>
+    from yateto import useArchitectureIdentifiedBy, Generator, NamespacedGenerator
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/yateto/__init__.py", line 1, in <module>
+    from .type import *
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/yateto/type.py", line 2, in <module>
+    from .ast.node import Node, IndexedTensor
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/yateto/ast/node.py", line 2, in <module>
+    from ..memory import DenseMemoryLayout
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/yateto/memory.py", line 1, in <module>
+    from .ast.indices import BoundingBox, Range
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/yateto/ast/indices.py", line 3, in <module>
+    from .. import aspp
+  File "/home/ccxmpich/temp/SeisSol/SeisSol/generated_code/yateto/aspp.py", line 1, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+make[2]: *** [src/generated_code/subroutine.h] Error 1
+make[1]: *** [CMakeFiles/SeisSol-codegen.dir/all] Error 2
+make: *** [all] Error 2
